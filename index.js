@@ -1,39 +1,44 @@
 $(document).ready(function() {
-    let topic = 'nba';
+    let topic = '';
     let limit = 25;
     let sortBy = "relevance"
     let storage = [];
     let result = "";
     
+
+
     
-    // $.ajax({
-    //   url: `http://www.reddit.com/search.json?q=${topic}&sort=${sortBy}&limit=${limit}`,
-    //   success: function(results) {
-    //       console.log(results.children);
-    //       $('.topic-search').click(function() {
-    //         //   console.log("data.data.children", data.data.children)
-    //         $.each(results, function(i, item) {
-    //             console.log("item", item);
-    //             console.log("i", i);
-    //           result += "<div>" + item + "</div>";
-    //           $("#feed").append(result);
-    //         })
-    //       });
-    //   }
-    // })
 
-
-      //triggers search
+      //grabs topic from input and triggers search
     $(".topic-search").click(function() {
+        console.log("topic", topic)
+        let subject = $(".topic-form").val();
+        console.log("topic", topic)
         $.ajax({
-            url: `http://www.reddit.com/search.json?q=${topic}&sort=${sortBy}&limit=${limit}`,
+            url: `http://www.reddit.com/search.json?q=${subject}&sort=${sortBy}&limit=${limit}`,
         }).then(function(data) {
             let results = data.data.children;
+            let submission = "";
             // console.log(data.data.children);
            for (var i = 0; i < results.length; i++) {
-               console.log(results[i].data.title);
-               let submission = `<div class="submission-con">${results[i].data.title}</div>`;
+            //    console.log(results[i].data);
+               console.log("thumbnail", results[i].data);
+               
+               if (results[i].data.thumbnail.slice(0, 4) === "http") {
+                submission = `<div class="submission-con">
+               <h3>${results[i].data.title}</h3>
+               <img src="${results[i].data.thumbnail}" height="${results[i].data.thumbnail_height}" width="${results[i].data.thumnail_width}"/>
+               </div>`;
+
                $("#feed").append(submission);
+               } else {
+                submission = `<div class="submission-con">
+                <h3>${results[i].data.title}</h3>
+                </div>`;
+                $("#feed").append(submission);
+               }
+               
+               
            }
         }).done(function(data) {
             console.log("finished");
