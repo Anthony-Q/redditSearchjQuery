@@ -1,0 +1,23 @@
+{
+  "name": "redditSearchjQuery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anthony-Q/redditSearchjQuery.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anthony-Q/redditSearchjQuery/issues"
+  },
+  "homepage": "https://github.com/Anthony-Q/redditSearchjQuery#readme",
+  "dependencies": {
+    "he": "^1.2.0"
+  }
+}

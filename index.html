@@ -12,7 +12,21 @@
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
   <script src="./index.js"></script>
-  <input class="topic-form" placeholder="Search Topic">Search</input>
+  <input class="topic-form" placeholder="Search Topic">Search Topic</input>
+  <select class="sortby-dropdown">
+    <option value = "relevance">relevance</option>
+    <option value = "top">top</option>
+    <option value = "new">new</option>
+    <option value = "hot">hot</option>
+    <option value = "comments">comments</option>
+  </select>
+  <select class="limit-dropdown">
+    <option value = "5">5</option>
+    <option value = "10">10</option>
+    <option value = "15">15</option>
+    <option value = "25">25</option>
+    <option value = "100">100</option>
+  </select>
   <button class="topic-search">Search</button>
   <div id="feed">Results</div>
 </body>
