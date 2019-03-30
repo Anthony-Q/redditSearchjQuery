@@ -7,8 +7,9 @@ let redditThreadSchema = new mongoose.Schema({
   selftext: String,
   subreddit: String,
   author: String,
-  date: Number,
-  comments: Number,
+  datePosted: Number,
+  dateSearched: Number,
+  comments: Number
 })
 
 let Thread = mongoose.model('Thread', redditThreadSchema);

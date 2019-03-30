@@ -1,5 +1,4 @@
 
-
 $(document).ready(function () {
     let topic = '';
     let limit = 25;
@@ -14,7 +13,7 @@ $(document).ready(function () {
         let sortBy = $(".sortby-dropdown").val();
         let limit = $(".limit-dropdown").val();
         console.log("sortBy", sortBy);
-        console.log("topic", topic)
+        console.log("topic", topic);
         $.ajax({
             url: `http://www.reddit.com/search.json?q=${subject}&sort=${sortBy}&limit=${limit}`,
         }).then(function (data) {
@@ -42,7 +41,14 @@ $(document).ready(function () {
                 }
             }
         }).done(function (data) {
-            console.log("finished");
+            $.ajax({
+                type: "POST",
+                url: "api/Thread"
+            }).done( function() {
+                console.log("ajax post")
+            }
+            )
         })
     })
+    
 });
