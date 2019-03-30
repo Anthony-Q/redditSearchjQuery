@@ -1,5 +1,5 @@
 let mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/redditSearch');
+mongoose.connect('mongodb://localhost:27017/redditThread', {useNewUrlParser: true});
 
 let db = mongoose.connection;
 
@@ -8,3 +8,4 @@ db.once("open", () => {
     console.log("<===mongoose connected");
 })
 
+module.exports = db;

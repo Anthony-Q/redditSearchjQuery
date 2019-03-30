@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const db = require('./index.js');
+const db = require("./index.js");
 
 let redditThreadSchema = new mongoose.Schema({
   threadName: String,
@@ -8,10 +8,10 @@ let redditThreadSchema = new mongoose.Schema({
   subreddit: String,
   author: String,
   datePosted: Number,
-  dateSearched: Number,
-  comments: Number
+  comments: Number,
+  upvotes: Number
 })
 
 let Thread = mongoose.model('Thread', redditThreadSchema);
 
-module.exports = Thread;
+module.exports = {Thread};

@@ -39,16 +39,25 @@ $(document).ready(function () {
                 </div>`;
                     $("#feed").append(submission);
                 }
+                $.ajax({
+                    type: "POST",
+                    url: "api/redditThread",
+                    data: {
+                        threadName: thread.title,
+                        threadImage: thread.url,
+                        selftext: thread.selftext,
+                        subreddit: thread.subreddit_name_prefixed,
+                        author: thread.author,
+                        datePosted: thread.created,
+                        comments: thread.num_comments,
+                        upvotes: thread.ups
+                      }
+                })
             }
+            
         }).done(function (data) {
-            $.ajax({
-                type: "POST",
-                url: "api/Thread"
-            }).done( function() {
-                console.log("ajax post")
-            }
-            )
-        })
-    })
+            console.log("ajax done");
+        });
+    });
     
 });
