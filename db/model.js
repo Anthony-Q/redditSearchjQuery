@@ -14,4 +14,11 @@ let redditThreadSchema = new mongoose.Schema({
 
 let Thread = mongoose.model('Thread', redditThreadSchema);
 
-module.exports = {Thread};
+
+let recentSearch = new mongoose.Schema({
+  oldSearch: String
+})
+
+let RecentSearch = mongoose.model("RecentSearch", recentSearch);
+
+module.exports = {Thread, RecentSearch};

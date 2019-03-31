@@ -29,12 +29,14 @@ $(document).ready(function () {
                <a href="${thread.url}">${thread.title}</a>
                <img src="${thread.thumbnail}" height="${thread.thumbnail_height}" width="${thread.thumnail_width}"/>
                <p>${thread.selftext}<p/>
+               <button class="save-btn">Save Thread</button>
                </div>`;
                     $("#feed").append(submission);
                 } else {
                     submission = `<div class="submission-con">
                 <a href="${thread.url}">${thread.title}</a>
                 <p>${thread.selftext}</p>
+                <button class="save-btn">Save Thread</button>
 
                 </div>`;
                     $("#feed").append(submission);
