@@ -9,7 +9,9 @@ let redditThreadSchema = new mongoose.Schema({
   author: String,
   datePosted: Number,
   comments: Number,
-  upvotes: Number
+  upvotes: Number,
+  threadImageHeight: Number,
+  threadImageWidth: Number
 })
 
 let Thread = mongoose.model('Thread', redditThreadSchema);

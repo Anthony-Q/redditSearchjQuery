@@ -2,7 +2,7 @@ const { Thread } = require("../db/model.js");
 
 module.exports = {
     post: (req, res) => {
-      new Thread.Thread({
+      new Thread({
         threadName:  req.body.threadName,
         threadImage: req.body.threadImage,
         selftext: req.body.selftext,
