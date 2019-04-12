@@ -25,6 +25,7 @@ $(document).ready(function () {
                 console.log("thumbnail", results[i].data);
                 thread = results[i].data;
                 console.log("text", results[i].data.selftext);
+
                 if (thread.thumbnail.slice(0, 4) === "http") {
                     submission = 
                 `<div class="submission-con">
@@ -33,7 +34,7 @@ $(document).ready(function () {
                   <img class="thread-image" src="${thread.thumbnail}" height="${thread.thumbnail_height}" width="${thread.thumnail_width}"/>
                   <p class="thread-selftext">${thread.selftext}<p/>
                   <a class="thread-subreddit">${thread.subreddit_name_prefixed}</a>
-                  <a class="thread-posted">${thread.created_utc}</a>
+                  <a class="thread-posted">${convertUTC(thread.created_utc)}</a>
                   <a class="thread-comments">${thread.num_comments}</a>
                   <button class="save-btn">Save Thread</button>
                 </div>`;
@@ -45,7 +46,7 @@ $(document).ready(function () {
                   <a class="thread-author">by ${thread.author}</a>
                   <p class="thread-selftext">${thread.selftext}</p>
                   <a class="thread-subreddit">${thread.subreddit_name_prefixed}</a>
-                  <a class="thread-posted">${thread.created_utc}</a>
+                  <a class="thread-posted">${convertUTC(thread.created_utc)}</a>
                   <button class="save-btn">Save Thread</button>
                 </div>`;
                     $("#feed").append(submission);
@@ -58,6 +59,7 @@ $(document).ready(function () {
 
     $("body").on("click", "button.save-btn", function() {
         console.log("tiheight:");
+        
         $.ajax({
             type: "POST",
             url: "api/redditThread",
@@ -77,5 +79,14 @@ $(document).ready(function () {
           console.log("post finished", data);
         });
        });
+
+       const convertUTC = (utc) => {
+        let convertedDate =  new Date(utc * 1000).toString().split('');
+        let month = convertedDate.slice(4, 7).join('');
+        let year = convertedDate.slice(11, 15).join('');
+        let day = convertedDate.slice(9, 10).join('');
+        let compiledDate = month + "/" + day + "/" + year;
+        return compiledDate;
+     }
     
 });

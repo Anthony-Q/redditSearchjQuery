@@ -1,12 +1,8 @@
-* {
-    font-size: 30px;
-}
+
+
 
 #feed {
+    display: flex;
+    flex-direction: column;
     background-color: #ffffff;
-}
-
-
-.thread-selftext {
-    font-size: 12px;
 }
