@@ -26,20 +26,27 @@ $(document).ready(function () {
                 thread = results[i].data;
                 console.log("text", results[i].data.selftext);
                 if (thread.thumbnail.slice(0, 4) === "http") {
-                    submission = `<div class="submission-con">
-               <a class="thread-title" href="${thread.url}">${thread.title}</a>
-               <a class-"thread-author">by ${thread.author}</a>
-               <img class="thread-image" src="${thread.thumbnail}" height="${thread.thumbnail_height}" width="${thread.thumnail_width}"/>
-               <p class="thread-selftext">${thread.selftext}<p/>
-               <button class="save-btn">Save Thread</button>
-               </div>`;
+                    submission = 
+                `<div class="submission-con">
+                  <a class="thread-title" href="${thread.url}">${thread.title}</a>
+                  <a class-"thread-author">by ${thread.author}</a>
+                  <img class="thread-image" src="${thread.thumbnail}" height="${thread.thumbnail_height}" width="${thread.thumnail_width}"/>
+                  <p class="thread-selftext">${thread.selftext}<p/>
+                  <a class="thread-subreddit">${thread.subreddit_name_prefixed}</a>
+                  <a class="thread-posted">${thread.created_utc}</a>
+                  <a class="thread-comments">${thread.num_comments}</a>
+                  <button class="save-btn">Save Thread</button>
+                </div>`;
                     $("#feed").append(submission);
                 } else {
-                    submission = `<div class="submission-con">
-                <a href="${thread.url}">${thread.title}</a>
-                <p>${thread.selftext}</p>
-                <button class="save-btn">Save Thread</button>
-
+                    submission = 
+                `<div class="submission-con">
+                  <a class="thread-title" href="${thread.url}">${thread.title}</a>
+                  <a class="thread-author">by ${thread.author}</a>
+                  <p class="thread-selftext">${thread.selftext}</p>
+                  <a class="thread-subreddit">${thread.subreddit_name_prefixed}</a>
+                  <a class="thread-posted">${thread.created_utc}</a>
+                  <button class="save-btn">Save Thread</button>
                 </div>`;
                     $("#feed").append(submission);
                 }
@@ -50,19 +57,21 @@ $(document).ready(function () {
     });
 
     $("body").on("click", "button.save-btn", function() {
-        console.log("hello from save thread", $(".thread-title").html());
+        console.log("tiheight:");
         $.ajax({
             type: "POST",
             url: "api/redditThread",
             data: {
                 threadName: $(".thread-title").html(),
-                threadImage: $(".thread-image").html(),
-                selftext: thread.selftext,
-                subreddit: thread.subreddit_name_prefixed,
-                author: thread.author,
-                datePosted: thread.created,
-                comments: thread.num_comments,
-                upvotes: thread.ups
+                threadImage: $(".thread-image").attr("src"),
+                threadUrl: $(".thread-title").attr("href"),
+                selftext: $(".thread-selftext").html(),
+                subreddit: $(".thread-subreddit").html(),
+                author: $(".thread-author").html(),
+                datePosted: $(".thread-posted").html(),
+                comments: $(".thread-comments").html(),
+                threadImageHeight: $(".thread-image").height(),
+                threadImageWidth: $(".thread-image").width()
               }
         }).done( (data) => {
           console.log("post finished", data);

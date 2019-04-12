@@ -10,7 +10,8 @@ module.exports = {
         author: req.body.author,
         datePosted: req.body.datePosted,
         comments: req.body.comments,
-        upvotes: req.body.ups
+        threadImageHeight: req.body.threadImageHeight,
+        threadImageWidth: req.body.threadImageWidth
       })
       .save()
       .then( data => {
@@ -29,7 +30,6 @@ module.exports = {
         author: req.query.author,
         datePosted: req.query.datePosted,
         comments: req.query.comments,
-        upvotes: req.query.ups
       })
       .then( data => {
         res.status(201).send(200);

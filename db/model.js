@@ -4,12 +4,12 @@ const db = require("./index.js");
 let redditThreadSchema = new mongoose.Schema({
   threadName: String,
   threadImage: String,
+  threadUrl: String,
   selftext: String,
   subreddit: String,
   author: String,
-  datePosted: Number,
+  datePosted: String,
   comments: Number,
-  upvotes: Number,
   threadImageHeight: Number,
   threadImageWidth: Number
 })
