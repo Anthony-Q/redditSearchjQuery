@@ -85,7 +85,7 @@ $(document).ready(function () {
         let month = convertedDate.slice(4, 7).join('');
         let year = convertedDate.slice(11, 15).join('');
         let day = convertedDate.slice(9, 10).join('');
-        let compiledDate = month + "/" + day + "/" + year;
+        let compiledDate = month + "/ " + day + "/ " + year;
         return compiledDate;
      }
     
