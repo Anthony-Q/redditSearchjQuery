@@ -6,7 +6,7 @@ class HashMapper {
   get(key) {
     let item = this.hasher(key);
     let result = null;
-    if (!this.list) {
+    if (!this.list[item]) {
       return undefined;
     }
     this.list[item].forEach(couple => {
@@ -17,9 +17,36 @@ class HashMapper {
     return result;
   }
 
+  delete(key) {
+    let item = this.hasher(key);
+    let result = null;
+    if (!this.list[item]) {
+      return undefined;
+    }
+    this.list[item].forEach(couple => {
+      if (couple[0] === key) {
+        result = couple[1];
+        delete couple[1];
+      }
+    });
+    return result;
+  }
+
   //set from HT
   set(key, value) {
     let item = this.hasher(key);
+    if (!this.list[item]) {
+      this.list[item] = [];
+    }
+    this.list[item].push([key, value]);
+  }
+
+  //logs the hash list for debugging purposes
+  logIt() {
+    let printedList = this.list;
+    for (var i = 0; i < printedList.length; i++) {
+      console.log(printedList[i]);
+    }
   }
 }
 
@@ -34,3 +61,11 @@ HashMapper.prototype.hasher = string => {
   }
   return hash;
 };
+
+let m = new HashMapper();
+
+m.set("anthony", 2002);
+m.set("peter", 765);
+console.log(m.logIt());
+m.delete("anthony");
+console.log(m.logIt());
