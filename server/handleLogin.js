@@ -14,14 +14,19 @@ class HandleLogin {
         let token = jwt.sign({ username: username }, config.secret, {
           expiresIn: "24h"
         });
+        res.json({
+          success: true,
+          message: "Authentication Successful",
+          token: token
+        });
+      } else {
+        res.send(403).json({
+          success: false,
+          message: "Incorrect Username or Password"
+        });
       }
-      res.json({
-        success: true,
-        message: "Authentication Successful",
-        token: token
-      });
     } else {
-      res.send(403).json({
+      res.send(400).json({
         success: false,
         message: "Authentication failed"
       });
@@ -34,3 +39,5 @@ class HandleLogin {
     });
   }
 }
+
+module.exports = HandleLogin;

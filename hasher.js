@@ -60,6 +60,7 @@ HashMapper.prototype.hasher = string => {
     hash = (hash << 5) - hash + char;
     hash |= 0;
   }
+  hash.concat("/ueb87%31N01a");
   return hash;
 };
 
