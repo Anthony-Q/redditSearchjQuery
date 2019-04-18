@@ -67,6 +67,10 @@ $(document).ready(function() {
       });
   });
 
+  $(".login-btn").on("click", function() {
+    $("body").load("./login.html");
+  });
+
   $("body").on("click", "button.save-btn", function() {
     console.log("tiheight:");
     $.ajax({
