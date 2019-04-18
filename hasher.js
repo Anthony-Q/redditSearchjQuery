@@ -16,7 +16,7 @@ class HashMapper {
     });
     return result;
   }
-
+  //delete couple
   delete(key) {
     let item = this.hasher(key);
     let result = null;
@@ -26,7 +26,7 @@ class HashMapper {
     this.list[item].forEach(couple => {
       if (couple[0] === key) {
         result = couple[1];
-        delete couple[1];
+        delete couple[0];
       }
     });
     return result;
@@ -35,6 +35,7 @@ class HashMapper {
   //set from HT
   set(key, value) {
     let item = this.hasher(key);
+
     if (!this.list[item]) {
       this.list[item] = [];
     }
@@ -68,4 +69,8 @@ m.set("anthony", 2002);
 m.set("peter", 765);
 console.log(m.logIt());
 m.delete("anthony");
+console.log(m.logIt());
+m.set("anthony", 2003);
+console.log(m.logIt());
+m.set("anthony", 1990);
 console.log(m.logIt());
