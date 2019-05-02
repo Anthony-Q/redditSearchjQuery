@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
+
     <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 
 </head>
@@ -13,26 +15,55 @@
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
-  <script src="./index.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="./index.js"></script>
   <script src="./hasher.js"></script>
 
+  <div class="container">
+  <div class="page-header">
+  <h1>Reddit Historian</h1>
+  <small>Save Reddit threads with the click of a button.</small>
+  <button type="button" class="btn-secondary login-btn">Login</button>
+  </div>
+  
+  </div>
+ <div class="container">
+   
   <input class="topic-form" placeholder="Search Topic">Search Topic</input>
-  <select class="sortby-dropdown">
-    <option value = "relevance">relevance</option>
-    <option value = "top">top</option>
-    <option value = "new">new</option>
-    <option value = "hot">hot</option>
-    <option value = "comments">comments</option>
+
+  <div class="btn-group">
+  <button class="btn btn-secondary dropdown-toggle sortby-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Sort By 
+    </button>
+    <div class="dropdown-menu">
+    <a class="dropdown-item" value = "relevance">relevance</a>
+    <a class="dropdown-item" value = "top">top</a>
+    <a class="dropdown-item" value = "new">new</a>
+    <a class="dropdown-item" value = "hot">hot</a>
+    <a class="dropdown-item" value = "comments">comments</a>
+    </div>
   </select>
-  <select class="limit-dropdown">
-    <option value = "5">5</option>
-    <option value = "10">10</option>
-    <option value = "15">15</option>
-    <option value = "25">25</option>
-    <option value = "100">100</option>
-  </select>
-  <button class="topic-search">Search</button>
-  <button class="login-btn">Login</button>
+
+  <div class="btn-group">
+  <button class="btn btn-secondary dropdown-toggle limit-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Limit
+  </button>
+  <div class="dropdown-menu">
+        <a class="dropdown-item" value = "5">5</option>
+        <a class="dropdown-item" value = "10">10</a>
+        <a class="dropdown-item" value = "15">15</a>
+        <a class="dropdown-item" value = "25">25</a>
+        <a class="dropdown-item" value = "100">100</a>
+      </div>
+    </div>
+ </div>
+
+ <div class="container">
+    <button type="button" class="btn-success btn-lg topic-search" data-toggle="dropdown">Search</button>
   <div id="feed">Results</div>
+  </div>
 </body>
 </html>

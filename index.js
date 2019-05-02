@@ -67,6 +67,7 @@ $(document).ready(function() {
       });
   });
 
+  //renders login page
   $(".login-btn").on("click", function() {
     $("body").load("./login.html");
   });
