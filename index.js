@@ -6,6 +6,8 @@ $(document).ready(function() {
   let result = "";
   let thread = null;
 
+  $("");
+
   //grabs topic from input and triggers search
   $(".topic-search").click(function() {
     console.log("topic", topic);
@@ -13,6 +15,7 @@ $(document).ready(function() {
     let subject = $(".topic-form").val();
     let sortBy = $(".sortby-dropdown").val();
     let limit = $(".limit-dropdown").val();
+    console.log("limit val", limit);
     console.log("sortBy", sortBy);
     console.log("topic", topic);
     $.ajax({
