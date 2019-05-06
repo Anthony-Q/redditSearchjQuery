@@ -6,7 +6,24 @@ $(document).ready(function() {
   let result = "";
   let thread = null;
 
-  $("");
+  // $(function() {
+  //   $(".dropdown-menu li a").on("click", function() {
+  //     $(".btn-group open:first-child").text($(this).text());
+  //     let key = $(".btn-group:first-child").text($(this).text());
+  //     // $(".btn-group:first-child").val($(this).val());
+  //     console.log("FC===>", key);
+  //   });
+  // });
+
+  $(".dropdown-menu li a").on("click", function() {
+    let text = $(this).text();
+    console.log(text);
+    $(this)
+      .parents(".btn-group")
+      .find(".btn")
+      .val(text)
+      .text(text);
+  });
 
   //grabs topic from input and triggers search
   $(".topic-search").click(function() {
