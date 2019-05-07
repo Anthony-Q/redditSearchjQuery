@@ -21,47 +21,58 @@
 <script src="./index.js"></script>
   <script src="./hasher.js"></script>
 
-  <div class="container">
-  <div class="page-header">
-  <h1>Reddit Historian</h1>
-  <small>Save Reddit threads with the click of a button.</small>
-  <button type="button" class="btn-secondary login-btn">Login</button>
-  </div>
-  </div>
 
- <div class="container">
-  <input class="topic-form" placeholder="Search Topic">Search Topic</input>
+<nav class="navbar navbar-default border-bottom bg-light navbar-fixed-top">
+
+  <!-- holds dropdowns -->
+  <div class="container-fluid">
+    <div class="navbar-header text-center">
+      <a class="navbar-brand">Reddit Historian</a>
+      <input class="topic-form" placeholder="Search Topic"></input>
+      <!-- dropdown for sortBy -->
+      <div class="btn-group open text-center">
+        <button class="btn btn-secondary dropdown-toggle sortby-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sort By 
+          </button>
+          <div class="dropdown-menu">
+          <li><a class="dropdown-item" value = "relevance">relevance</a></li>
+          <li><a class="dropdown-item" value = "top">top</a></li>
+          <li><a class="dropdown-item" value = "new">new</a></li>
+          <li><a class="dropdown-item" value = "hot">hot</a></li>
+          <li><a class="dropdown-item" value = "comments">comments</a></li>
+          </div>
+        </div>
+        
+   <!-- dropdown for api call limit -->
+        <div class="btn-group open">
+          <button class="btn btn-secondary dropdown-toggle limit-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Limit
+          </button>
+          <div class="dropdown-menu">
+                <li><a class="dropdown-item" value = "5">5</a></li>
+                  <li><a class="dropdown-item" value = "10">10</a></li>
+                    <li> <a class="dropdown-item" value = "15">15</a></li>
+                      <li> <a class="dropdown-item" value = "25">25</a></li>
+                        <li> <a class="dropdown-item" value = "100">100</a></li>
+              </div>
+            </div>
+            <!-- search button -->
+            <button type="button" class="btn-success btn topic-search" >Search</button>
+
+         </div>
+         <button type="button" class="btn-secondary login-btn">Login</button>
+    </div>
+  </div>
+</nav>
+
+ 
+
   
-  <div class="btn-group open">
-    <button class="btn btn-secondary dropdown-toggle sortby-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Sort By 
-      </button>
-      <div class="dropdown-menu">
-      <li><a class="dropdown-item" value = "relevance">relevance</a></li>
-      <li><a class="dropdown-item" value = "top">top</a></li>
-      <li><a class="dropdown-item" value = "new">new</a></li>
-      <li><a class="dropdown-item" value = "hot">hot</a></li>
-      <li><a class="dropdown-item" value = "comments">comments</a></li>
-      </div>
-    </div>
+  
 
-  <div class="btn-group open">
-  <button class="btn btn-secondary dropdown-toggle limit-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Limit
-  </button>
-  <div class="dropdown-menu">
-        <li><a class="dropdown-item" value = "5">5</a></li>
-          <li><a class="dropdown-item" value = "10">10</a></li>
-            <li> <a class="dropdown-item" value = "15">15</a></li>
-              <li> <a class="dropdown-item" value = "25">25</a></li>
-                <li> <a class="dropdown-item" value = "100">100</a></li>
-      </div>
-    </div>
- </div>
 
- <div class="container">
-    <button type="button" class="btn-success btn-lg topic-search" >Search</button>
-  <div id="feed">Results</div>
+ <div class="container text-center">
+  <div id="feed"></div>
   </div>
 </body>
 </html>
